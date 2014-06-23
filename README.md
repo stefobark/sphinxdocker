@@ -9,7 +9,7 @@ Grab these files, open a terminal, cd to their directory and build:
 sudo docker.io build -t sphinx . 
 ```
 
-I'm using Ubunutu 14.04, so docker is "docker.io"-- and I didn't change it.. for you, this may not be the case.
+I'm using Ubunutu 14.04, so docker is ```docker.io```-- and I didn't change it.. for you, this may not be the case.
 
 ```Dockerfile``` adds the Sphinx PPA, installs Sphinx, creates some directories, ADDs our .sh files, and exposes port 9306 
 
