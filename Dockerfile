@@ -1,4 +1,4 @@
-FROM stefo/sphinx:test
+FROM phusion/baseimage
 
 RUN apt-get update
 RUN apt-get -y install software-properties-common
