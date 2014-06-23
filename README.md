@@ -1,14 +1,14 @@
 sphinxdocker
 ============
 
-<h3>Give it a try.</h3>
+<h3>give it a try.</h3>
 
 This is 'Sphinx-in-a-box". It's built up from <a href="https://registry.hub.docker.com/u/phusion/baseimage/">phusion/baseimage</a> -- an optimized Ubuntu image. To play with it just grab these files, open a terminal, cd to their directory and build:
 
 ```
 sudo docker.io build -t sphinx . 
 ```
-<h3>Introduction</h3>
+<h3>some introduction</h3>
 I'm using Ubunutu 14.04, so docker is ```docker.io```-- and I didn't change it.. for you, this may not be the case.
 
 ```Dockerfile``` adds the Sphinx PPA, installs Sphinx, creates some directories, ADDs our .sh files, and exposes port 9306 
@@ -22,7 +22,7 @@ I'm opening port 9306 to port 9311 on the host machine and sharing the ```/var/w
 
 ```/var/www/html/sphinx```is where I've put sphinxy.conf, and ```/etc/sphinxsearch/``` is where Sphinx expects the config file to be by default. Now the container should have a Sphinx configuration to work from.
 
-<h3>Persistent Index Data</h3>
+<h3>persistent index data</h3>
 If you want index data to persist through container shutdowns, just add another ```-v /some/directory/:/var/lib/sphinx/data/``` to share some directory on your host machine with the default Sphinx index data directory within the container. There's an answer <a href="http://stackoverflow.com/questions/18496940/how-to-deal-with-persistent-storage-e-g-databases-in-docker">here</a> that points to some nice resources on how to use another container to store data, instead of doing this-- storing it on the host machine.
 
 <h3>.sh files</h3>
@@ -41,7 +41,7 @@ Then, then you should be able to check Sphinx out with:
 
 ```mysql -h 0.0.0.0 -P 9311```
 
-<h3>Realtime</h3>
+<h3>realtime</h3>
 If we defined a realtime index in our configuration file, we could just run ```searchd.sh``` instead of ```indexandsearch.sh``` to get searchd up and running.
 
 These are my first steps with Docker. I've got a lot to learn. Just wanted to share.
