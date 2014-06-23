@@ -3,7 +3,7 @@ sphinxdocker
 
 <h3>Give it a try.</h3>
 
-This is 'Sphinx-in-a-box". To play with it just grab these files, open a terminal, cd to their directory and build:
+This is 'Sphinx-in-a-box". It's built up from phusion/baseimage -- an optimized Ubuntu image. To play with it just grab these files, open a terminal, cd to their directory and build:
 
 ```
 sudo docker.io build -t sphinx . 
