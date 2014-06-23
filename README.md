@@ -17,7 +17,7 @@ It'll run through the steps and should eventually tell you that it was succesful
 ```
 sudo docker.io run -p 9311:9306 -v /var/www/html/sphinx/:/etc/sphinxsearch/ -d sphinx ./indexandsearch.sh "
 ```
-I'm opening port 9306 to port 9311 on the host machine and sharing the ```/var/www/html/sphinx directory```with the container's ```/etc/sphinxsearch```.
+I'm opening port 9306 to port 9311 on the host machine and sharing the ```/var/www/html/sphinx directory``` with the container's ```/etc/sphinxsearch```.
 
 ```/var/www/html/sphinx```is where I've put sphinxy.conf, and ```/etc/sphinxsearch/``` is where Sphinx expects the config file to be by default. Now the container should have a Sphinx configuration to work from.
 
