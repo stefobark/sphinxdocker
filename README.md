@@ -27,7 +27,7 @@ Make sure it's running:
 
 Then, then you should be able to check everything out with:
 
-"mysql -h 0.0.0.0 -P 9311
+"mysql -h 0.0.0.0 -P 9311"
 
 These are my first steps with Docker. I've got a lot to learn. Just wanted to share.
 
