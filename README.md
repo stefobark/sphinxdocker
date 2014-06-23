@@ -11,6 +11,8 @@ sudo docker.io build -t sphinx .
 
 I'm using Ubunutu 14.04, so docker is "docker.io"-- and I didn't change it.. for you, this may not be the case.
 
+```Dockerfile``` adds the Sphinx PPA, installs Sphinx, creates some directories, ADDs our .sh files, and exposes port 9306 
+
 It'll run through the steps and should eventually tell you that it was succesfully built. So, let's run it:
 ```
 sudo docker.io run -p 9311:9306 -v /var/www/html/sphinx/:/etc/sphinxsearch/ -d sphinx ./indexandsearch.sh "
@@ -23,7 +25,7 @@ This is where I've put sphinxy.conf, and where Sphinx expects the config file to
 You should write your own configuration file and point Sphinx to your data source, or edit this one to match your setup. 
 
 In my case, I'm using another container that's running MySQL.
-To connect to that MySQL container, I just ran ```sudo docker.io inspect <container id>``` got the IP address and port, and put that info into sphinxy.conf. In indexandsearch.sh, I'm telling sphinx to index from this file, instead of the default 'sphinx.conf'. Edit indexandsearch if you want to use some other name, or the default.
+To connect to that MySQL container, I just ran ```sudo docker.io inspect <container id>``` got the IP address and port, and put that info into sphinxy.conf. Not sure this is optimal. I'm thinking of linking the two containers. In ```indexandsearch.sh```, I'm telling sphinx to index from this file, instead of the default ```sphinx.conf```. Edit ```indexandsearch.sh``` if you want to use some other name, or the default.
 
 Now, make sure it's running:
 
