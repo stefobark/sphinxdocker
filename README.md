@@ -5,7 +5,7 @@ sphinxdocker
 
 Grab these files, open a terminal, cd to their directory and build:
 
-```shell
+```
 sudo docker.io build -t sphinx . 
 ```
 
@@ -19,7 +19,7 @@ I'm opening port 9306 to port 9311 on the host machine and sharing the ```/var/w
 
 This is where I've put sphinxy.conf, and where Sphinx expects the config file to be by default. Now the container should have a Sphinx configuration to work from.
 
-indexandsearch.sh runs indexer using this config file and then runs searchd.sh which starts up searchd.
+```indexandsearch.sh``` runs indexer using this config file and then runs ```searchd.sh``` which starts up searchd.
 You should write your own configuration file and point Sphinx to your data source, or edit this one to match your setup. 
 
 In my case, I'm using another container that's running MySQL.
