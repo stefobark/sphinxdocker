@@ -1,8 +1,6 @@
 sphinxdocker
 ============
 
-<h2>Sphinx-beta PPA in Docker</h2>
-
 <h3>Give it a try.</h3>
 
 Grab these files, open a terminal, cd to their directory and build:
