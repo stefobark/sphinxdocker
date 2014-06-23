@@ -22,7 +22,7 @@ I'm opening port 9306 to port 9311 on the host machine and sharing the ```/var/w
 
 ```/var/www/html/sphinx```is where I've put sphinxy.conf, and ```/etc/sphinxsearch/``` is where Sphinx expects the config file to be by default. Now the container should have a Sphinx configuration to work from.
 
-If you want index data to persist through container shutdowns, just add another ```-v /some/directory/:/var/lib/sphinx/data/``` to share some directory on your host machine with the default data directory within the container.
+If you want index data to persist through container shutdowns, just add another ```-v /some/directory/:/var/lib/sphinx/data/``` to share some directory on your host machine with the default Sphinx index data directory within the container. There's an answer <a href="http://stackoverflow.com/questions/18496940/how-to-deal-with-persistent-storage-e-g-databases-in-docker">here</a> that points to some nice resources on how to use another container to store data, instead of doing this-- storing it on the host machine.
 
 ```indexandsearch.sh``` runs indexer using this config file and then runs ```searchd.sh``` which starts up searchd.
 You should write your own configuration file and point Sphinx to your data source, or edit this one to match your setup. 
