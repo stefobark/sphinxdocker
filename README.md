@@ -9,11 +9,9 @@ phinx-in-a-box. It's built up from <a href="https://registry.hub.docker.com/u/ph
 sudo docker.io build -t sphinx . 
 ```
 <h3>some introduction</h3>
-I'm using Ubunutu 14.04, so docker is ```docker.io```-- and I didn't change it.. for you, this may not be the case.
+I'm using Ubunutu 14.04, so docker is ```docker.io```-- and I didn't change it.. for you, this may not be the case.<strong>Dockerfile</strong> adds the Sphinx PPA, installs Sphinx, creates some directories, ADDs our .sh files, and exposes port 9306 It'll run through the steps and should eventually tell you that it was succesfully built. 
 
-<strong>Dockerfile</strong> adds the Sphinx PPA, installs Sphinx, creates some directories, ADDs our .sh files, and exposes port 9306 
-
-It'll run through the steps and should eventually tell you that it was succesfully built. Run it like so:
+Run it like so:
 ```
 sudo docker.io run -p 9311:9306 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ -d sphinx ./indexandsearch.sh
 ```
@@ -27,7 +25,7 @@ If you want index data to persist through container shutdowns, just add another 
 
 <h3>.sh files</h3>
 <strong>indexandsearch.sh</strong> runs indexer using <strong>sphinxy.conf </strong>and then runs <strong>searchd.sh</strong> which... starts up searchd.
-You might write your own configuration file and point Sphinx to your data source, or edit sphinxy.conf to match your setup. Also, in <strong>indexandsearch.sh</strong>, I'm telling sphinx to index from this file, instead of the default <strong>sphinx.conf</strong>(which you should take a look at). The sphinx.conf file that comes with Sphinx is heavily commented, so it's helpful to see configuration options in context, and so its nice to have around (that's why sphinxy.conf was born). Edit <strong>indexandsearch.sh</strong> if you want to use some other name, or just delete the -c option and the following path to go with the default location.
+You might write your own configuration file and point Sphinx to your data source, or edit sphinxy.conf to match your setup. Also, in <strong>indexandsearch.sh</strong>, I'm telling sphinx to index from this file, instead of the default <strong>sphinx.conf</strong>(which you should take a look at). The sphinx.conf file that comes with Sphinx is heavily commented, it's helpful to see configuration options in context, and so its nice to have around (that's why sphinxy.conf was born). Edit <strong>indexandsearch.sh</strong> if you want to use some other name, or just delete the -c option to go with the default location.
 
 <h3>MySQL</h3>
 I'm using another container that's running MySQL.
