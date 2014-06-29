@@ -9,7 +9,7 @@ phinx-in-a-box. It's built up from <a href="https://registry.hub.docker.com/u/ph
 sudo docker.io build -t sphinx . 
 ```
 <h3>some introduction</h3>
-I'm using Ubunutu 14.04, so docker is ```docker.io```-- and I didn't change it.. for you, this may not be the case.<strong>Dockerfile</strong> adds the Sphinx PPA, installs Sphinx, creates some directories, ADDs our .sh files, and exposes port 9306 It'll run through the steps and should eventually tell you that it was succesfully built. 
+I'm using Ubunutu 14.04, so docker is ```docker.io```-- and I didn't change it.. for you, this may not be the case.<strong>Dockerfile</strong>  adds the Sphinx PPA, installs Sphinx, creates some directories, ADDs our .sh files, and exposes port 9306 It'll run through the steps and should eventually tell you that it was succesfully built. 
 
 Run it like so:
 ```
