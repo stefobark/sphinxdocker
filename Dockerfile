@@ -14,5 +14,3 @@ ADD indexandsearch.sh /
 RUN chmod a+x indexandsearch.sh
 ADD searchd.sh /
 RUN chmod a+x searchd.sh
-
-EXPOSE 9306
