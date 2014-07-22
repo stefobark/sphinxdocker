@@ -51,8 +51,8 @@ I recently began learning about distributed search with Sphinx. Sometimes it's g
 ```
 sudo docker.io run -p 9306:9306 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name sphinx1 -d stefobark/sphinx ./indexandsearch.sh
 sudo docker.io run -p 9307:9307 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name sphinx2 -d stefobark/sphinx ./indexandsearch.sh
-sudo docker.io run -p 9406:9406 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name sphinx1 -d stefobark/sphinx ./indexandsearch.sh
-sudo docker.io run -p 9406:9406 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name sphinx1 -d stefobark/sphinx ./indexandsearch.sh
+sudo docker.io run -p 9406:9406 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name sphinx3 -d stefobark/sphinx ./indexandsearch.sh
+sudo docker.io run -p 9406:9406 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name sphinx4 -d stefobark/sphinx ./indexandsearch.sh
 ```
 
 I'm sharding index data. Containers that have ports starting with 93 are all mirrors of each other, they contain the first 100 docs from our datasource. Those listening on 940* are also mirrors of each other, they hold the next 100 docs.
