@@ -43,7 +43,7 @@ Then, you should be able to check the Sphinx inside the container with:
 
 ```mysql -h0 -P9311```
 
-###Realtime###
+###Realtime Indexing###
 If we defined a realtime index in our configuration file, we could just run **searchd.sh** instead of **indexandsearch.sh** to just get searchd up and running. Although, indexandsearch will work just as well.. It also starts searchd.
 
 ###Playing with Distributed Search###
