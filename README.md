@@ -49,7 +49,7 @@ If we defined a realtime index in our configuration file, we could just run **se
 ###Playing with Distributed Search###
 I recently began learning about distributed search with Sphinx. Sometimes it's good to shard your index, or you might want to do agent mirroring for HA/failover. Using docker to learn how to this works was pretty nice. Convenient. I didn't have to worry about creating a unique PID, or a unique path for index/log files, which would be necessary if you were running multiple Sphinx instances locally. Now, I'm trying to figure out how to make this even easier. So, **makelord.sh** was born.
 
-The motivation behind makelord.sh is to detect Sphinx containers, grab the port's they're listening on, and create a configuration file for the final node, "lordsphinx". So, run it on the host machine, it will create a Sphinx configuration file for the master node called **bashsphinx.conf** and then start the last container, lordsphinx, with **indexlord.sh** (which will run Sphinx with bashsphinx.conf and therefore, detect all the distributed indexes!).
+The motivation behind makelord.sh is to detect existing Sphinx containers, grab the port's they're listening on, and create a configuration file for the final node, "lordsphinx". So, running makelord.sh on the host machine will create a Sphinx configuration file for the master node called **bashsphinx.conf**. After this, start the last container, lordsphinx, with **indexlord.sh** (which will run Sphinx with bashsphinx.conf and all the agents will be detected). Just an experiment. More messing around to do here.
 
 ###Bye Bye###
 These are my first steps with Docker. I've got a lot to learn. Just wanted to share.
