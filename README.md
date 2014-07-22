@@ -3,7 +3,9 @@ sphinxdocker
 
 ###Give it a Try.###
 
-This is built up from [phusion/baseimage](https://registry.hub.docker.com/u/phusion/baseimage/). To play with it just grab these files, open a terminal and build (or, go [here](https://registry.hub.docker.com/u/stefobark/sphinxdocker/) to get it from docker hub):
+This is built up from [phusion/baseimage](https://registry.hub.docker.com/u/phusion/baseimage/) (but I'm not really taking advantage of the things it offers... yet).
+
+To play with it just grab these files, open a terminal and build (or, go [here](https://registry.hub.docker.com/u/stefobark/sphinxdocker/) to get it from docker hub):
 
 ```
 sudo docker.io build -t sphinx . 
