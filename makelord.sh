@@ -24,7 +24,7 @@
 
 #to add another shard, with another set of agent mirrors, uncomment this and change "grep ^93" to match the starting numbers for this set of mirrors.. make sure that each set of mirrors starts with unique #s
 
-	shard=$(sudo docker.io inspect $(sudo docker.io ps | awk '{if(NR>1)print $1}') | grep HostPort | grep -o '[0-9]*' | grep ^94 | uniq)
+	#shard=$(sudo docker.io inspect $(sudo docker.io ps | awk '{if(NR>1)print $1}') | grep HostPort | grep -o '[0-9]*' | grep ^94 | uniq)
 	#shard1=$(sudo docker.io inspect $(sudo docker.io ps | awk '{if(NR>1)print $1}') | grep HostPort | grep -o '[0-9]*' | grep ^94 | uniq)
 
 #... keep adding shards if necessary.
