@@ -18,7 +18,7 @@ Run Sphinx in a 'detached' container (daemonized) like so:
 sudo docker.io run -p 9311:9306 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ -d sphinx ./indexandsearch.sh
 ```
 
-The -p 9311:9306 is opening port 9306 to port 9311 on the host machine. Open whatever port you've told searchd to listen to. Then, with -v we're sharing the **/var/www/html/sphinx directory** with the container's **/etc/sphinxsearch**. This is handy because we can now write the Sphinx configuration file from the host machine.
+The -p 9311:9306 is opening port 9306 to port 9311 on the host machine. Open whatever port you've told searchd to listen to. Then, with -v we're sharing the **/path/to/local/sphinx directory** (which might be the directory you're using for these docker files) with the container's **/etc/sphinxsearch**. This is handy because we can now write the Sphinx configuration file from the host machine.
 
 * **/path/to/local/sphinx/conf** is the location of sphinxy.conf (which is the very basic sphinx configuration file I've provided)
 * **/etc/sphinxsearch/** is where the Sphinx instance in the container will expect to find the configuration file. So, now, when we run indexandsearch.sh, Sphinx should have a configuration to work from.
