@@ -27,7 +27,7 @@
 	shard=$(sudo docker.io inspect $(sudo docker.io ps | awk '{if(NR>1)print $1}') | grep HostPort | grep -o '[0-9]*' | grep ^94 | uniq)
 	#shard1=$(sudo docker.io inspect $(sudo docker.io ps | awk '{if(NR>1)print $1}') | grep HostPort | grep -o '[0-9]*' | grep ^94 | uniq)
 
-#... keep adding if necessary.
+#... keep adding shards if necessary.
 
 #if there are more shards, uncomment this stuff and print lines for each new set of mirrored agents. if there are more sets of mirrored agents, copy and paste this block below and change 'shard' to 'shard1' 'shard2' ... or whatever you want to call it.
 
