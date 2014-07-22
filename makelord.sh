@@ -42,4 +42,4 @@
 
 #spit out searchd settings, listen on 9306 for mysql protocol. now mysql -h0 -P9306 to talk to lordsphinx from the command line
 
-	printf "\nsearchd\n{\nlisten=9306:mysql41\nlog=/var/log/sphinx/searchd.log\nquery_log=/var/log/sphinx/query.log\nquery_log_format=sphinxql\nread_timeout=5\nmax_children=30\npid_file=/var/run/sphinx/searchd.pid\nworkers=threads\n}" >>bashsphinx.conf
+	printf "\nsearchd\n{\nlisten=9999:mysql41\nlog=/var/log/sphinx/searchd.log\nquery_log=/var/log/sphinx/query.log\nquery_log_format=sphinxql\nread_timeout=5\nmax_children=30\npid_file=/var/run/sphinx/searchd.pid\nworkers=threads\n}" >>bashsphinx.conf
