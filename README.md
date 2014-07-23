@@ -23,10 +23,7 @@ Run Sphinx in a 'detached' container (daemonized) like so:
 sudo docker.io run -p 9311:9306 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ -d sphinx ./indexandsearch.sh
 ```
 
-The ```-p 9311:9306``` is opening port 9306 to port 9311 on the host machine. Open whatever port you've told searchd to listen to. Then, with -v we're sharing the ```/path/to/local/sphinx directory``` (which is the directory you're using for these docker files) with the container's ```/etc/sphinxsearch```. This is handy because we can now edit the Sphinx configuration file from the host machine.
-
-* ```/path/to/local/sphinx/conf``` is the location of sphinxy.conf (which is the very basic sphinx configuration file provided here)
-* ```/etc/sphinxsearch/``` is where the Sphinx instance in the container will expect to find the configuration file. So, now, when we run indexandsearch.sh, Sphinx should have a configuration to work from.
+The ```-p 9311:9306``` is opening port 9306 to port 9311 on the host machine. Open whatever port you've told searchd to listen to. Then, with -v we're sharing the ```/path/to/local/sphinx directory``` (which is the directory you're using for these docker files) with the container's ```/etc/sphinxsearch```. This is handy because we can now edit the Sphinx configuration file from the host machine. So, now, after running indexandsearch.sh, Sphinx should have a configuration file to work with.
 
 ###Persistent Index Data###
 If you want index data to persist through container shutdowns, just add another ```-v /some/directory/:/var/lib/sphinx/data/``` to share a directory on your host machine with the Sphinx data directory within the container.
