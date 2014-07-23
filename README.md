@@ -18,6 +18,8 @@ sudo docker.io pull stefobark/sphinxdocker
 ###Some Introduction###
 ```Dockerfile```  starts by adding the Phusion Ubuntu base image, adds the Sphinx PPA, installs Sphinx, creates some directories, ADDs our .sh files, and exposes port 9306. It'll take a bit to run through the steps but after some time, it should confirm a successful build. 
 
+####Run the Container####
+
 Run Sphinx in a 'detached' container (daemonized) like so:
 ```
 sudo docker.io run -p 9311:9306 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ -d sphinx ./indexandsearch.sh
@@ -42,16 +44,23 @@ Now, let's make sure it's running:
 
 ```sudo docker.io ps```
 
-Then, you should be able to check the Sphinx instance inside the container with:
+Perfect.
+
+####Command Line Client####
+
+Then, check the Sphinx instance inside the container with:
 
 ```mysql -h0 -P9311```
 
+Try a SELECT statement or something.
 
 ###Realtime Indexing###
 If we defined a realtime index in our configuration file, we could just run ```searchd.sh``` instead of ```indexandsearch.sh``` to just get searchd up and running. Although, ```indexandsearch.sh``` will work just as well.. It also starts searchd. 
 
 ###Playing with Distributed Search###
 Sometimes it's good to shard your index, or you might want to do agent mirroring for HA/failover. For me, using docker to learn how this works was pretty nice. Convenient. I didn't have to worry about creating a unique PID, or a unique path for index/log files, which would be necessary if you were running multiple Sphinx instances on one machine. 
+
+####An outline of what I did####
 
 I started a bunch of Sphinx containers off of one image... many containers with unique names. To edit where searchd listens, and what will be indexed, for each container, I just edited ```sphinxy.conf``` before starting it:
 ```
@@ -61,16 +70,18 @@ sudo docker.io run -p 9406:9406 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/
 sudo docker.io run -p 9407:9407 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name sphinx4 -d stefobark/sphinx ./indexandsearch.sh
 ```
 
-I'm sharding index data. Containers that have ports starting with ``93`` are all mirrors of each other, they contain the first 100 docs from our datasource. Those listening on ports starting with 94 are also mirrors of each other, they hold the next 100 docs.
+This created some 'shards' and 'mirrors'.. Containers that have ports starting with ``93`` are all mirrors of each other, they contain the first 100 docs from our datasource. Those listening on ports starting with ```94``` are also mirrors of each other, they hold the next 100 docs.
 
-From here, I start up 'lordsphinx':
+From here, I started up 'lordsphinx':
 ```
 sudo docker.io run -p 9999:9999 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name lordsphinx -d stefobark/sphinx ./lordsearchd.sh
 ```
 
-It holds the 'distributed' index type, which maps to the other instances of Sphinx. 
+It held the 'distributed' index type, which maps to the other instances of Sphinx. 
 
-Now, I'd like to figure out how to make this process even easier. So, this is how ```makelord.sh``` was born.
+####```makelord.sh``` makes a distributed index configuration file#####
+
+Now, I'd like to figure out how to make this process even easier. This is how ```makelord.sh``` was born.
 
 The motivation behind makelord.sh is to detect existing Sphinx containers, grab the port's they're listening on, and create a configuration file that the master node can use. So, running makelord.sh on the host machine will create a Sphinx configuration file for the master node called ```bsphinx.conf```. 
 
