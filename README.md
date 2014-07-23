@@ -3,13 +3,18 @@ sphinxdocker
 
 ###Give it a Try.###
 
-This is built up from [phusion/baseimage](https://registry.hub.docker.com/u/phusion/baseimage/) (but I'm not really taking advantage of the things it offers... yet).
-
-To play with it just grab these files, open a terminal and build (or, go [here](https://registry.hub.docker.com/u/stefobark/sphinxdocker/) to get it from docker hub):
+Just grab these files, open a terminal and build:
 
 ```
 sudo docker.io build -t sphinx . 
 ```
+
+Or, pull it:
+
+```
+sudo docker.io pull stefobark/sphinxdocker
+```
+
 ###Some Introduction###
 **Dockerfile**  adds the Sphinx PPA, installs Sphinx, creates some directories, ADDs our .sh files, and exposes port 9306. It'll take a bit to run through the steps but after some time, it should confirm a successful build. 
 
