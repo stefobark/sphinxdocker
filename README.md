@@ -75,7 +75,7 @@ It holds the 'distributed' index type, which maps to the other instances of Sphi
 
 Now, I'm trying to figure out how to make this even easier. So, **makelord.sh** was born.
 
-The motivation behind makelord.sh is to detect existing Sphinx containers, grab the port's they're listening on, and create a configuration file that the master node can use. So, running makelord.sh on the host machine will create a Sphinx configuration file for the master node called **bsphinx.conf**. After this file is generated, start the last container, lordsphinx, with **lordsearchd.sh** (which will run Sphinx with bashsphinx.conf). Just an experiment. More messing around to do here.
+The motivation behind makelord.sh is to detect existing Sphinx containers, grab the port's they're listening on, and create a configuration file that the master node can use. So, running makelord.sh on the host machine will create a Sphinx configuration file for the master node called **bsphinx.conf**. After this file is generated, start the last container, lordsphinx, with **lordsearchd.sh** (which will run Sphinx with bsphinx.conf). Just an experiment. More messing around to do here.
 
 ###Bye Bye###
 These are my first steps with Docker. I've got a lot to learn. Just wanted to share.
