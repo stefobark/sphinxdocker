@@ -29,7 +29,7 @@ The -p 9311:9306 is opening port 9306 to port 9311 on the host machine. Open wha
 * **/etc/sphinxsearch/** is where the Sphinx instance in the container will expect to find the configuration file. So, now, when we run indexandsearch.sh, Sphinx should have a configuration to work from.
 
 ###Persistent Index Data###
-If you want index data to persist through container shutdowns, just add another ```-v /some/directory/:/var/lib/sphinx/data/``` to share a directory on your host machine with the default Sphinx data directory within the container.
+If you want index data to persist through container shutdowns, just add another ```-v /some/directory/:/var/lib/sphinx/data/``` to share a directory on your host machine with the Sphinx data directory within the container.
 
 ###.sh Files###
 **indexandsearch.sh** runs indexer using **sphinxy.conf** and then runs **searchd.sh** which... starts up searchd.
