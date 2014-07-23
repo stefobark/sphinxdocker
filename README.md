@@ -60,7 +60,7 @@ I'm sharding index data. Containers that have ports starting with 93 are all mir
 
 From here, I start up 'lordsphinx':
 ```
-sudo docker.io run -p 9999:9999 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name lordsphinx -d stefobark/sphinx ./indexandsearch.sh
+sudo docker.io run -p 9999:9999 -v /path/to/local/sphinx/conf:/etc/sphinxsearch/ --name lordsphinx -d stefobark/sphinx ./lordsearchd.sh
 ```
 
 It holds the 'distributed' index type, which maps to the other instances of Sphinx. 
