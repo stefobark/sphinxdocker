@@ -45,7 +45,7 @@ Now, let's make sure it's running:
 
 ```sudo docker.io ps```
 
-Then, you should be able to check the Sphinx inside the container with:
+Then, you should be able to check the Sphinx instance inside the container with:
 
 ```mysql -h0 -P9311```
 
