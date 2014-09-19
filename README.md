@@ -1,16 +1,14 @@
 sphinxdocker
 ============
-Sphinx-beta in an Ubuntu Docker container!
+Sphinx-beta in an Ubuntu Docker container! This container will require some configuration (which is really no big deal), but if you just want to pass in database connection parameters when starting the container, go try [this one](https://github.com/stefobark/QuickSphinx). It's probably the easiest way to get started playing around with Sphinx.
 
-####Give it a Try.####
-
-Just grab these files, open a terminal and build:
+#####Build it:#####
 
 ```
 sudo docker.io build -t sphinx . 
 ```
 
-Or, pull it:
+#####Pull it:######
 
 ```
 sudo docker.io pull stefobark/sphinxdocker
