@@ -86,6 +86,4 @@ The motivation behind makelord.sh is to detect existing Sphinx containers, grab 
 
 After this file is generated, start the last container, lordsphinx, with ```lordsearchd.sh``` (which will run Sphinx with ```bsphinx.conf```). Just an experiment. More messing around to do here.
 
-####Bye Bye####
-These are my first steps with Docker. And my first github repo... I've got a lot to learn. Just wanted to share.
 
